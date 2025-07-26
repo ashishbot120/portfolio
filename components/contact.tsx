@@ -57,7 +57,7 @@ export function Contact() {
                     <MapPin className="h-5 w-5 text-green-600" />
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-sm text-muted-foreground">Vasai, India</p>
+                      <p className="text-sm text-muted-foreground">Mumbai, India</p>
                     </div>
                   </div>
                 </div>

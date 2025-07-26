@@ -32,38 +32,6 @@ export function Projects() {
       icon: <FileText className="h-6 w-6" />,
       featured: true,
     },
-    {
-      title: "AI Document Processor",
-      description:
-        "Advanced document processing system with OCR capabilities and intelligent text extraction for various document formats.",
-      technologies: ["Python", "Tesseract OCR", "PyMuPDF", "OpenCV"],
-      features: [
-        "Multi-format document support",
-        "OCR text extraction",
-        "Intelligent text preprocessing",
-        "Batch processing capabilities",
-      ],
-      github: "#",
-      demo: null,
-      icon: <Brain className="h-6 w-6" />,
-      featured: false,
-    },
-    {
-      title: "Vector Search Engine",
-      description:
-        "Custom vector search engine using embeddings and similarity search for semantic document retrieval.",
-      technologies: ["Python", "ChromaDB", "SentenceTransformer", "FastAPI"],
-      features: [
-        "Semantic search capabilities",
-        "Vector embeddings storage",
-        "Real-time similarity matching",
-        "RESTful API interface",
-      ],
-      github: "#",
-      demo: null,
-      icon: <Search className="h-6 w-6" />,
-      featured: false,
-    },
   ]
 
   return (
