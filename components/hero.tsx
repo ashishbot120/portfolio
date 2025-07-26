@@ -54,7 +54,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <MapPin className="h-4 w-4" />
-              <span>Vasai, India</span>
+              <span>Mumbai, India</span>
             </div>
           </div>
 
