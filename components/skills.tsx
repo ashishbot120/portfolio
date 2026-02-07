@@ -3,31 +3,31 @@ import { Badge } from "@/components/ui/badge"
 
 export function Skills() {
   const skillCategories = [
-    {
-      title: "Programming Languages",
-      skills: ["Python", "Java", "JavaScript", "TypeScript"],
-    },
-    {
-      title: "AI/ML Technologies",
-      skills: ["Ollama (Mistral)", "SentenceTransformer", "ChromaDB", "Cosine Similarity", "RAG Systems", "LLMs"],
-    },
-    {
-      title: "Backend & APIs",
-      skills: ["FastAPI", "RESTful APIs", "Postman", "API Design"],
-    },
-    {
-      title: "Data Processing",
-      skills: ["PyMuPDF", "Tesseract OCR", "PDF Processing", "Text Chunking", "Embeddings"],
-    },
-    {
-      title: "Frontend & UI",
-      skills: ["Streamlit", "React", "Next.js", "Tailwind CSS"],
-    },
-    {
-      title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "VS Code", "Linux", "Docker"],
-    },
-  ]
+  {
+    title: "Languages",
+    skills: ["Python", "JavaScript", "TypeScript"],
+  },
+  {
+    title: "Web Technologies",
+    skills: ["Next.js", "React.js", "Node.js", "Express", "FastAPI", "Tailwind CSS"],
+  },
+  {
+    title: "AI / ML",
+    skills: ["RAG", "NLP", "YOLO", "OCR", "Vector Databases", "LLMs"],
+  },
+  {
+    title: "Databases",
+    skills: ["MongoDB", "PostgreSQL", "ChromaDB"],
+  },
+  {
+    title: "Systems & Hardware",
+    skills: ["VLSI Basics", "CMOS Fundamentals", "Digital Circuits"],
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "Docker", "Postman", "Streamlit", "Vercel"],
+  },
+]
 
   return (
     <section id="skills" className="py-20">

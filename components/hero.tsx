@@ -27,13 +27,13 @@ export function Hero() {
           <div className="text-xl md:text-2xl text-muted-foreground mb-8 h-16">
             <TypeAnimation
               sequence={[
-                "Full Stack Developer",
+                "Full-Stack & Applied AI Engineer",
                 2000,
-                "AI Enthusiast",
+                "RAG & Computer Vision Developer",
                 2000,
-                "Backend Developer",
+                "Scalable Backend Architect",
                 2000,
-                "Student Developer",
+                "VLSI & Systems Explorer",
                 2000,
               ]}
               wrapper="span"
@@ -43,35 +43,57 @@ export function Hero() {
           </div>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            3rd Year Computer Engineering student passionate about AI, machine learning, and building intelligent
-            applications. Specialized in Python, FastAPI, and LLM-based solutions.
+            Computer Engineering undergraduate specializing in Full-Stack Development and Applied AI. 
+Experienced in building scalable web architectures and integrating Machine Learning systems 
+like RAG pipelines and Computer Vision models to solve real-world automation challenges.
+
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Mail className="h-4 w-4" />
-              <span>ashishwaghode1301@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <MapPin className="h-4 w-4" />
-              <span>Mumbai, India</span>
-            </div>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8 text-sm">
+  <div className="flex items-center gap-2 text-muted-foreground">
+    <Mail className="h-4 w-4" />
+    <span>ashishwaghode1301@gmail.com</span>
+  </div>
+
+  <div className="flex items-center gap-2 text-muted-foreground">
+    <span>+91 7558602508</span>
+  </div>
+
+  <div className="flex items-center gap-2 text-muted-foreground">
+    <MapPin className="h-4 w-4" />
+    <span>Mumbai, India</span>
+  </div>
+</div>
+
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={scrollToProjects} size="lg">
-              View My Work
-            </Button>
-            <Button variant="outline" size="lg" onClick={scrollToContact}>
-              Get In Touch
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com/ashishbot120" target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </a>
-            </Button>
-          </div>
+  
+  
+  {/* Get In Touch → Open Email */}
+  <Button
+    variant="outline"
+    size="lg"
+    asChild
+  >
+    <a href="mailto:ashishwaghode1301@gmail.com">
+      Get In Touch
+    </a>
+  </Button>
+
+  {/* GitHub */}
+  <Button variant="outline" size="lg" asChild>
+    <a
+      href="https://github.com/ashishbot120"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Github className="h-4 w-4 mr-2" />
+      GitHub
+    </a>
+  </Button>
+
+</div>
+
         </div>
       </div>
     </section>
