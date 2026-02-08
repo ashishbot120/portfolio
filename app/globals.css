@@ -101,3 +101,16 @@ body {
   scrollbar-width: none;
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #050507; /* consistent fallback */
+}
+
+@media (max-width: 768px) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(12px);
+  }
+}

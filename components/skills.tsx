@@ -1,62 +1,101 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { motion } from "framer-motion"
+import { container, item } from "@/components/motion"
 
 export function Skills() {
   const skillCategories = [
-  {
-    title: "Languages",
-    skills: ["Python", "JavaScript", "TypeScript"],
-  },
-  {
-    title: "Web Technologies",
-    skills: ["Next.js", "React.js", "Node.js", "Express", "FastAPI", "Tailwind CSS"],
-  },
-  {
-    title: "AI / ML",
-    skills: ["RAG", "NLP", "YOLO", "OCR", "Vector Databases", "LLMs"],
-  },
-  {
-    title: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "ChromaDB"],
-  },
-  {
-    title: "Systems & Hardware",
-    skills: ["VLSI Basics", "CMOS Fundamentals", "Digital Circuits"],
-  },
-  {
-    title: "Tools",
-    skills: ["Git", "Docker", "Postman", "Streamlit", "Vercel"],
-  },
-]
+    { title: "Languages", skills: ["Python", "JavaScript", "TypeScript"] },
+    { title: "Web Technologies", skills: ["Next.js", "React.js", "Node.js", "Express", "FastAPI", "Tailwind CSS"] },
+    { title: "AI / ML", skills: ["RAG", "NLP", "YOLO", "OCR", "Vector Databases", "LLMs"] },
+    { title: "Databases", skills: ["MongoDB", "PostgreSQL", "ChromaDB"] },
+    { title: "Systems & Hardware", skills: ["VLSI Basics", "CMOS Fundamentals", "Digital Circuits"] },
+    { title: "Tools", skills: ["Git", "Docker", "Postman", "Streamlit", "Vercel"] },
+  ]
+
+  const shapeClass = (i: number) => {
+    // subtle “different shapes” without breaking responsiveness
+    const shapes = [
+      "rounded-[28px]",
+      "rounded-[28px] [clip-path:polygon(0%_0%,100%_0%,100%_85%,92%_100%,0%_100%)]",
+      "rounded-[28px] [clip-path:polygon(0%_0%,100%_0%,100%_100%,8%_100%,0%_85%)]",
+    ]
+    return shapes[i % shapes.length]
+  }
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="relative py-20">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(50%_35%_at_50%_0%,rgba(99,102,241,0.12),transparent_60%)]" />
+
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Skills & Technologies</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Here are the technologies and tools I work with to build intelligent applications.
+            Technologies and tools I use to build intelligent, production-ready applications.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {skillCategories.map((category, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle className="text-lg">{category.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
+            <motion.div key={index} variants={item}>
+              <Card
+                className={[
+                  "group relative overflow-hidden border border-border/50 bg-background/60 backdrop-blur shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl",
+                  shapeClass(index),
+                ].join(" ")}
+              >
+                {/* glow border */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute -inset-[2px] bg-gradient-to-r from-blue-500/25 via-purple-500/25 to-pink-500/25 blur-xl" />
                 </div>
-              </CardContent>
-            </Card>
+
+                <CardHeader className="relative">
+                  <CardTitle className="text-lg flex items-center justify-between">
+                    {category.title}
+                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                      {category.skills.length}+
+                    </span>
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className="relative">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45 }}
+                    className="flex flex-wrap gap-2"
+                  >
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skillIndex}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.35, delay: skillIndex * 0.03 }}
+                      >
+                        <Badge
+                          variant="secondary"
+                          className="bg-background/60 border border-border/50"
+                        >
+                          {skill}
+                        </Badge>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
